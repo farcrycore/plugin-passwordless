@@ -117,8 +117,12 @@
 					<cfset stUser = oUser.getData(createUUID())>
 				</cfif>
 
-				<cfset stUser.mobile = stResult.mobile>
-				<cfset stUser.email = stResult.email>
+				<cfif len(stResult.mobile)>
+					<cfset stUser.mobile = stResult.mobile>
+				</cfif>
+				<cfif len(stResult.email)>
+					<cfset stUser.email = stResult.email>
+				</cfif>
 				<cfset stUser.label = trim(stResult.email & " " & stResult.mobile)>
 
 				<!--- save user object --->
